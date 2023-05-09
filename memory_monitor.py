@@ -19,12 +19,15 @@ def monitor_memory_usage(pid, interval, duration):
     end_time = time.time() + duration
     timestamps = []
     memory_usage = []
+    cmdline = ''  # Initialize cmdline here
 
     while time.time() < end_time:
         current_time = time.time()
-        cmdline, mem_usage = get_process_info(pid)
+        temp_cmdline, mem_usage = get_process_info(pid)
         if mem_usage is None:  # process does not exist
             break
+        if temp_cmdline:  # update cmdline if it's not None
+            cmdline = temp_cmdline
         timestamps.append(current_time)
         memory_usage.append(mem_usage)
         print(f"{current_time:.2f}s: {mem_usage:.2f}MB")
@@ -73,7 +76,6 @@ if __name__ == "__main__":
     timestamp_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"memory_usage_{timestamp_str}.txt"
     dir_path = os.path.join("measurements", filename[:-4])  # create subfolder path
-    
     if not os.path.exists(dir_path):  # create subfolder if it does not exist
         os.makedirs(dir_path)
 
