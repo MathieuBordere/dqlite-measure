@@ -1,1 +1,0 @@
-dqlite-benchmark -d 127.0.0.1:9001 --driver --disk -c 127.0.0.1:9001 --duration 3600 --key-size 128 --value-size 40960
