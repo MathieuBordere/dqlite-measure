@@ -1,0 +1,958 @@
+desc: (none)
+cmd: dqlite-benchmark -d 127.0.0.1:9001 --driver --disk -c 127.0.0.1:9001 --duration 3600 --key-size 128 --value-size 40960
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=83951514297
+mem_heap_B=43738590
+mem_heap_extra_B=79378
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=155238024988
+mem_heap_B=67168853
+mem_heap_extra_B=50355
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=244009210516
+mem_heap_B=67104757
+mem_heap_extra_B=48179
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=338601491584
+mem_heap_B=175843117
+mem_heap_extra_B=58427
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=407533557076
+mem_heap_B=196064597
+mem_heap_extra_B=104459
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=469597505493
+mem_heap_B=196506197
+mem_heap_extra_B=106043
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=531127917646
+mem_heap_B=200633525
+mem_heap_extra_B=133307
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=604669694268
+mem_heap_B=266295749
+mem_heap_extra_B=146739
+mem_stacks_B=0
+heap_tree=detailed
+n3: 266295749 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 259723152 0x4877BA7: command__encode (command.c:95)
+  n1: 259723152 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 259723152 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 259723152 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 259723152 0x488546C: leader__barrier (leader.c:470)
+      n1: 259723152 0x488576E: leader__exec (leader.c:435)
+       n2: 259723152 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 258696288 0x488546C: leader__barrier (leader.c:470)
+         n1: 258696288 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 258696288 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 258696288 0x4879140: read_request_cb (conn.c:156)
+            n1: 258696288 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 258696288 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 258696288 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 258696288 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 258696288 0x48896FF: taskRun (server.c:730)
+                 n1: 258696288 0x48896FF: taskStart (server.c:770)
+                  n1: 258696288 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 258696288 0x4B5DBB3: clone (clone.S:100)
+        n0: 1026864 in 1 place, below massif's threshold (1.00%)
+ n1: 5698624 0x497D5EA: ??? (in /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6)
+  n2: 5698624 0x4981899: sqlite3Malloc (in /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6)
+   n2: 3492504 0x488D679: vfsFrameCreate (vfs.c:169)
+    n1: 3492504 0x489155A: vfsWalAppend (vfs.c:2267)
+     n1: 3492504 0x489155A: VfsApply (vfs.c:2384)
+      n1: 3492504 0x487AABE: apply_frames (fsm.c:258)
+       n1: 3492504 0x487AABE: fsm__apply (fsm.c:331)
+        n1: 3492504 0x4CA5F67: applyCommand (replication.c:1377)
+         n1: 3492504 0x4CA5F67: replicationApply (replication.c:1651)
+          n1: 3492504 0x4CA74E0: appendLeaderCb (replication.c:522)
+           n1: 3492504 0x4CADD8E: uvAppendFinishRequestsInQueue (uv_append.c:126)
+            n1: 3492504 0x4CAE64B: uvAppendFinishWritingRequests (uv_append.c:134)
+             n2: 3492504 0x4CAE64B: uvAliveSegmentWriteCb (uv_append.c:258)
+              n1: 2958984 0x4C71C71: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 2958984 0x4C691EC: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 2958984 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                 n1: 2958984 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                  n1: 2958984 0x48896FF: taskRun (server.c:730)
+                   n1: 2958984 0x48896FF: taskStart (server.c:770)
+                    n1: 2958984 0x4ACCB42: start_thread (pthread_create.c:442)
+                     n0: 2958984 0x4B5DBB3: clone (clone.S:100)
+              n0: 533520 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 2206120 in 53 places, all below massif's threshold (1.00%)
+ n0: 873973 in 59 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=9
+#-----------
+time=679490770441
+mem_heap_B=261858157
+mem_heap_extra_B=115619
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=737921229462
+mem_heap_B=348166117
+mem_heap_extra_B=177275
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=830048076374
+mem_heap_B=348607413
+mem_heap_extra_B=178827
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=887201303033
+mem_heap_B=353301461
+mem_heap_extra_B=166483
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=948255834829
+mem_heap_B=424456037
+mem_heap_extra_B=149075
+mem_stacks_B=0
+heap_tree=detailed
+n2: 424456037 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 419717088 0x4877BA7: command__encode (command.c:95)
+  n1: 419717088 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 419717088 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 419717088 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 419717088 0x488546C: leader__barrier (leader.c:470)
+      n1: 419717088 0x488576E: leader__exec (leader.c:435)
+       n2: 419717088 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 417314232 0x488546C: leader__barrier (leader.c:470)
+         n1: 417314232 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 417314232 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 417314232 0x4879140: read_request_cb (conn.c:156)
+            n1: 417314232 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 417314232 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 417314232 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 417314232 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 417314232 0x48896FF: taskRun (server.c:730)
+                 n1: 417314232 0x48896FF: taskStart (server.c:770)
+                  n1: 417314232 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 417314232 0x4B5DBB3: clone (clone.S:100)
+        n0: 2402856 in 1 place, below massif's threshold (1.00%)
+ n0: 4738949 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=1024168871748
+mem_heap_B=502239037
+mem_heap_extra_B=179619
+mem_stacks_B=0
+heap_tree=detailed
+n3: 502239037 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 495339480 0x4877BA7: command__encode (command.c:95)
+  n1: 495339480 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 495339480 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 495339480 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 495339480 0x488546C: leader__barrier (leader.c:470)
+      n1: 495339480 0x488576E: leader__exec (leader.c:435)
+       n2: 495339480 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 492267096 0x488546C: leader__barrier (leader.c:470)
+         n1: 492267096 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 492267096 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 492267096 0x4879140: read_request_cb (conn.c:156)
+            n1: 492267096 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 492267096 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 492267096 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 492267096 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 492267096 0x48896FF: taskRun (server.c:730)
+                 n1: 492267096 0x48896FF: taskStart (server.c:770)
+                  n1: 492267096 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 492267096 0x4B5DBB3: clone (clone.S:100)
+        n0: 3072384 in 1 place, below massif's threshold (1.00%)
+ n1: 5499712 0x497D5EA: ??? (in /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6)
+  n1: 5499712 0x4981899: sqlite3Malloc (in /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6)
+   n0: 5499712 in 54 places, all below massif's threshold (1.00%)
+ n0: 1399845 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=15
+#-----------
+time=1108111164145
+mem_heap_B=475323181
+mem_heap_extra_B=147659
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=1208219963436
+mem_heap_B=768297389
+mem_heap_extra_B=183571
+mem_stacks_B=0
+heap_tree=detailed
+n3: 768297389 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 514176216 0x4877BA7: command__encode (command.c:95)
+  n1: 514176216 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 514176216 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 514176216 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 514176216 0x488546C: leader__barrier (leader.c:470)
+      n1: 514176216 0x488576E: leader__exec (leader.c:435)
+       n2: 514176216 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 510454872 0x488546C: leader__barrier (leader.c:470)
+         n1: 510454872 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 510454872 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 510454872 0x4879140: read_request_cb (conn.c:156)
+            n1: 510454872 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 510454872 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 510454872 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 510454872 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 510454872 0x48896FF: taskRun (server.c:730)
+                 n1: 510454872 0x48896FF: taskStart (server.c:770)
+                  n1: 510454872 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 510454872 0x4B5DBB3: clone (clone.S:100)
+        n0: 3721344 in 1 place, below massif's threshold (1.00%)
+ n1: 250724217 0x4C9B8C7: Compress (compress.c:109)
+  n1: 250724217 0x4CB9482: makeFileCompressed (uv_snapshot.c:492)
+   n1: 250724217 0x4CB9482: uvSnapshotPutWorkCb (uv_snapshot.c:528)
+    n1: 250724217 0x4C71FEF: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+     n1: 250724217 0x4ACCB42: start_thread (pthread_create.c:442)
+      n0: 250724217 0x4B5DBB3: clone (clone.S:100)
+ n0: 3396956 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=1272892466366
+mem_heap_B=492296933
+mem_heap_extra_B=186267
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=1350669987402
+mem_heap_B=501370733
+mem_heap_extra_B=156219
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=1414012986875
+mem_heap_B=517786901
+mem_heap_extra_B=180347
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=1463951604793
+mem_heap_B=517933989
+mem_heap_extra_B=180675
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=1536906418180
+mem_heap_B=465431877
+mem_heap_extra_B=179979
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=1617330932773
+mem_heap_B=477740373
+mem_heap_extra_B=208267
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=1663347702473
+mem_heap_B=478779165
+mem_heap_extra_B=173299
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=1749773121369
+mem_heap_B=464721389
+mem_heap_extra_B=147771
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=1801423021785
+mem_heap_B=496000989
+mem_heap_extra_B=186235
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=1878960658701
+mem_heap_B=485601357
+mem_heap_extra_B=215211
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=1953566403847
+mem_heap_B=496402597
+mem_heap_extra_B=165267
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=2039778751712
+mem_heap_B=494094117
+mem_heap_extra_B=165155
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=2126029376757
+mem_heap_B=495362589
+mem_heap_extra_B=162563
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=2182367768056
+mem_heap_B=468888685
+mem_heap_extra_B=151475
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=2251988675814
+mem_heap_B=473037605
+mem_heap_extra_B=152507
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=2348468762344
+mem_heap_B=508447485
+mem_heap_extra_B=160843
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=2429851999813
+mem_heap_B=507291629
+mem_heap_extra_B=166899
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=2491026039685
+mem_heap_B=512100925
+mem_heap_extra_B=137459
+mem_stacks_B=0
+heap_tree=detailed
+n2: 512100925 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 509629104 0x4877BA7: command__encode (command.c:95)
+  n1: 509629104 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 509629104 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 509629104 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 509629104 0x488546C: leader__barrier (leader.c:470)
+      n1: 509629104 0x488576E: leader__exec (leader.c:435)
+       n2: 509629104 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 505517496 0x488546C: leader__barrier (leader.c:470)
+         n1: 505517496 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 505517496 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 505517496 0x4879140: read_request_cb (conn.c:156)
+            n1: 505517496 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 505517496 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 505517496 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 505517496 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 505517496 0x48896FF: taskRun (server.c:730)
+                 n1: 505517496 0x48896FF: taskStart (server.c:770)
+                  n1: 505517496 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 505517496 0x4B5DBB3: clone (clone.S:100)
+        n0: 4111608 in 1 place, below massif's threshold (1.00%)
+ n0: 2471821 in 61 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=35
+#-----------
+time=2568990167340
+mem_heap_B=495338581
+mem_heap_extra_B=167339
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=2634553813665
+mem_heap_B=501108981
+mem_heap_extra_B=138923
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=2729823033205
+mem_heap_B=471483821
+mem_heap_extra_B=187835
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=2811596541501
+mem_heap_B=500296101
+mem_heap_extra_B=142395
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=2853818867256
+mem_heap_B=504746645
+mem_heap_extra_B=206923
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=2913579504442
+mem_heap_B=1353178035
+mem_heap_extra_B=192061
+mem_stacks_B=0
+heap_tree=detailed
+n3: 1353178035 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 827031407 0x4C9B8C7: Compress (compress.c:109)
+  n1: 827031407 0x4CB9482: makeFileCompressed (uv_snapshot.c:492)
+   n1: 827031407 0x4CB9482: uvSnapshotPutWorkCb (uv_snapshot.c:528)
+    n1: 827031407 0x4C71FEF: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+     n1: 827031407 0x4ACCB42: start_thread (pthread_create.c:442)
+      n0: 827031407 0x4B5DBB3: clone (clone.S:100)
+ n1: 513986856 0x4877BA7: command__encode (command.c:95)
+  n1: 513986856 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 513986856 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 513986856 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 513986856 0x488546C: leader__barrier (leader.c:470)
+      n1: 513986856 0x488576E: leader__exec (leader.c:435)
+       n2: 513986856 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 509333184 0x488546C: leader__barrier (leader.c:470)
+         n1: 509333184 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 509333184 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 509333184 0x4879140: read_request_cb (conn.c:156)
+            n1: 509333184 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 509333184 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 509333184 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 509333184 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 509333184 0x48896FF: taskRun (server.c:730)
+                 n1: 509333184 0x48896FF: taskStart (server.c:770)
+                  n1: 509333184 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 509333184 0x4B5DBB3: clone (clone.S:100)
+        n0: 4653672 in 1 place, below massif's threshold (1.00%)
+ n0: 12159772 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=41
+#-----------
+time=2968529632426
+mem_heap_B=470539381
+mem_heap_extra_B=153019
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=3060949191328
+mem_heap_B=508422645
+mem_heap_extra_B=190875
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=3133796989307
+mem_heap_B=1089352442
+mem_heap_extra_B=184686
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=3205359039410
+mem_heap_B=1417802202
+mem_heap_extra_B=154214
+mem_stacks_B=0
+heap_tree=detailed
+n3: 1417802202 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 901549062 0x4C9B8C7: Compress (compress.c:109)
+  n1: 901549062 0x4CB9482: makeFileCompressed (uv_snapshot.c:492)
+   n1: 901549062 0x4CB9482: uvSnapshotPutWorkCb (uv_snapshot.c:528)
+    n1: 901549062 0x4C71FEF: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+     n1: 901549062 0x4ACCB42: start_thread (pthread_create.c:442)
+      n0: 901549062 0x4B5DBB3: clone (clone.S:100)
+ n1: 514241592 0x4877BA7: command__encode (command.c:95)
+  n1: 514241592 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 514241592 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 514241592 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 514241592 0x488546C: leader__barrier (leader.c:470)
+      n1: 514241592 0x488576E: leader__exec (leader.c:435)
+       n2: 514241592 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 509887800 0x488546C: leader__barrier (leader.c:470)
+         n1: 509887800 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 509887800 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 509887800 0x4879140: read_request_cb (conn.c:156)
+            n1: 509887800 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 509887800 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 509887800 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 509887800 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 509887800 0x48896FF: taskRun (server.c:730)
+                 n1: 509887800 0x48896FF: taskStart (server.c:770)
+                  n1: 509887800 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 509887800 0x4B5DBB3: clone (clone.S:100)
+        n0: 4353792 in 1 place, below massif's threshold (1.00%)
+ n0: 2011548 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=45
+#-----------
+time=3271970425809
+mem_heap_B=479390861
+mem_heap_extra_B=150459
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=3332945244626
+mem_heap_B=501310749
+mem_heap_extra_B=184675
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=3419981636995
+mem_heap_B=494594045
+mem_heap_extra_B=160163
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=3477559298602
+mem_heap_B=494025125
+mem_heap_extra_B=127355
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=3547568532268
+mem_heap_B=1669538764
+mem_heap_extra_B=162228
+mem_stacks_B=0
+heap_tree=detailed
+n3: 1669538764 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1152048112 0x4C9B8C7: Compress (compress.c:109)
+  n1: 1152048112 0x4CB9482: makeFileCompressed (uv_snapshot.c:492)
+   n1: 1152048112 0x4CB9482: uvSnapshotPutWorkCb (uv_snapshot.c:528)
+    n1: 1152048112 0x4C71FEF: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+     n1: 1152048112 0x4ACCB42: start_thread (pthread_create.c:442)
+      n0: 1152048112 0x4B5DBB3: clone (clone.S:100)
+ n1: 513802560 0x4877BA7: command__encode (command.c:95)
+  n1: 513802560 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 513802560 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 513802560 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 513802560 0x488546C: leader__barrier (leader.c:470)
+      n1: 513802560 0x488576E: leader__exec (leader.c:435)
+       n2: 513802560 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 509641752 0x488546C: leader__barrier (leader.c:470)
+         n1: 509641752 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 509641752 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 509641752 0x4879140: read_request_cb (conn.c:156)
+            n1: 509641752 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 509641752 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 509641752 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 509641752 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 509641752 0x48896FF: taskRun (server.c:730)
+                 n1: 509641752 0x48896FF: taskStart (server.c:770)
+                  n1: 509641752 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 509641752 0x4B5DBB3: clone (clone.S:100)
+        n0: 4160808 in 1 place, below massif's threshold (1.00%)
+ n0: 3688092 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=50
+#-----------
+time=3595122840933
+mem_heap_B=495050613
+mem_heap_extra_B=179643
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=3599071175394
+mem_heap_B=908356967
+mem_heap_extra_B=163089
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=3602972528600
+mem_heap_B=1496868623
+mem_heap_extra_B=160617
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=3604335176187
+mem_heap_B=1693039175
+mem_heap_extra_B=159793
+mem_stacks_B=0
+heap_tree=detailed
+n3: 1693039175 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1177079547 0x4C9B8C7: Compress (compress.c:109)
+  n1: 1177079547 0x4CB9482: makeFileCompressed (uv_snapshot.c:492)
+   n1: 1177079547 0x4CB9482: uvSnapshotPutWorkCb (uv_snapshot.c:528)
+    n1: 1177079547 0x4C71FEF: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+     n1: 1177079547 0x4ACCB42: start_thread (pthread_create.c:442)
+      n0: 1177079547 0x4B5DBB3: clone (clone.S:100)
+ n1: 513942000 0x4877BA7: command__encode (command.c:95)
+  n1: 513942000 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 513942000 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 513942000 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 513942000 0x488546C: leader__barrier (leader.c:470)
+      n1: 513942000 0x488576E: leader__exec (leader.c:435)
+       n2: 513942000 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 509620992 0x488546C: leader__barrier (leader.c:470)
+         n1: 509620992 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 509620992 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 509620992 0x4879140: read_request_cb (conn.c:156)
+            n1: 509620992 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 509620992 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 509620992 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 509620992 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 509620992 0x48896FF: taskRun (server.c:730)
+                 n1: 509620992 0x48896FF: taskStart (server.c:770)
+                  n1: 509620992 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 509620992 0x4B5DBB3: clone (clone.S:100)
+        n0: 4321008 in 1 place, below massif's threshold (1.00%)
+ n0: 2017628 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=54
+#-----------
+time=3609336269368
+mem_heap_B=464096525
+mem_heap_extra_B=150987
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=3619147747422
+mem_heap_B=474289397
+mem_heap_extra_B=150115
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=3676189884812
+mem_heap_B=487166213
+mem_heap_extra_B=187979
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=3708554678833
+mem_heap_B=517537981
+mem_heap_extra_B=193003
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=3712908041695
+mem_heap_B=1325647303
+mem_heap_extra_B=212489
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=3715632722331
+mem_heap_B=1726483887
+mem_heap_extra_B=214561
+mem_stacks_B=0
+heap_tree=detailed
+n3: 1726483887 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1202578347 0x4C9B8C7: Compress (compress.c:109)
+  n1: 1202578347 0x4CB9482: makeFileCompressed (uv_snapshot.c:492)
+   n1: 1202578347 0x4CB9482: uvSnapshotPutWorkCb (uv_snapshot.c:528)
+    n1: 1202578347 0x4C71FEF: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+     n1: 1202578347 0x4ACCB42: start_thread (pthread_create.c:442)
+      n0: 1202578347 0x4B5DBB3: clone (clone.S:100)
+ n1: 513679248 0x4877BA7: command__encode (command.c:95)
+  n1: 513679248 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 513679248 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 513679248 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 513679248 0x488546C: leader__barrier (leader.c:470)
+      n1: 513679248 0x488576E: leader__exec (leader.c:435)
+       n2: 513679248 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 509259696 0x488546C: leader__barrier (leader.c:470)
+         n1: 509259696 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 509259696 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 509259696 0x4879140: read_request_cb (conn.c:156)
+            n1: 509259696 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 509259696 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 509259696 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 509259696 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 509259696 0x48896FF: taskRun (server.c:730)
+                 n1: 509259696 0x48896FF: taskStart (server.c:770)
+                  n1: 509259696 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 509259696 0x4B5DBB3: clone (clone.S:100)
+        n0: 4419552 in 1 place, below massif's threshold (1.00%)
+ n0: 10226292 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=60
+#-----------
+time=3730094366968
+mem_heap_B=469374349
+mem_heap_extra_B=197267
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=3766040011088
+mem_heap_B=487098669
+mem_heap_extra_B=154771
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=3792033995359
+mem_heap_B=496335021
+mem_heap_extra_B=151747
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=3795783794220
+mem_heap_B=926092727
+mem_heap_extra_B=190457
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=3799850067080
+mem_heap_B=1539632051
+mem_heap_extra_B=186877
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=3801271695504
+mem_heap_B=1744145159
+mem_heap_extra_B=187049
+mem_stacks_B=0
+heap_tree=detailed
+n3: 1744145159 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1227115907 0x4C9B8C7: Compress (compress.c:109)
+  n1: 1227115907 0x4CB9482: makeFileCompressed (uv_snapshot.c:492)
+   n1: 1227115907 0x4CB9482: uvSnapshotPutWorkCb (uv_snapshot.c:528)
+    n1: 1227115907 0x4C71FEF: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+     n1: 1227115907 0x4ACCB42: start_thread (pthread_create.c:442)
+      n0: 1227115907 0x4B5DBB3: clone (clone.S:100)
+ n1: 513777792 0x4877BA7: command__encode (command.c:95)
+  n1: 513777792 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 513777792 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 513777792 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 513777792 0x488546C: leader__barrier (leader.c:470)
+      n1: 513777792 0x488576E: leader__exec (leader.c:435)
+       n2: 513777792 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 509555328 0x488546C: leader__barrier (leader.c:470)
+         n1: 509555328 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 509555328 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 509555328 0x4879140: read_request_cb (conn.c:156)
+            n1: 509555328 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 509555328 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 509555328 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 509555328 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 509555328 0x48896FF: taskRun (server.c:730)
+                 n1: 509555328 0x48896FF: taskStart (server.c:770)
+                  n1: 509555328 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 509555328 0x4B5DBB3: clone (clone.S:100)
+        n0: 4222464 in 1 place, below massif's threshold (1.00%)
+ n0: 3251460 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=66
+#-----------
+time=3804843289399
+mem_heap_B=496491445
+mem_heap_extra_B=154155
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=3861133866328
+mem_heap_B=502638829
+mem_heap_extra_B=163051
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=3865706680267
+mem_heap_B=1151549323
+mem_heap_extra_B=179189
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=3869858834915
+mem_heap_B=1777930633
+mem_heap_extra_B=178679
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=3869933993623
+mem_heap_B=1777930633
+mem_heap_extra_B=178679
+mem_stacks_B=0
+heap_tree=peak
+n3: 1777930633 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1252779317 0x4C9B8C7: Compress (compress.c:109)
+  n1: 1252779317 0x4CB9482: makeFileCompressed (uv_snapshot.c:492)
+   n1: 1252779317 0x4CB9482: uvSnapshotPutWorkCb (uv_snapshot.c:528)
+    n1: 1252779317 0x4C71FEF: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+     n1: 1252779317 0x4ACCB42: start_thread (pthread_create.c:442)
+      n0: 1252779317 0x4B5DBB3: clone (clone.S:100)
+ n1: 513580752 0x4877BA7: command__encode (command.c:95)
+  n1: 513580752 0x48844A2: leaderApplyFrames (leader.c:318)
+   n1: 513580752 0x48844A2: leaderExecV2 (leader.c:376)
+    n1: 513580752 0x48844A2: execBarrierCb (leader.c:411)
+     n1: 513580752 0x488546C: leader__barrier (leader.c:470)
+      n1: 513580752 0x488576E: leader__exec (leader.c:435)
+       n2: 513580752 0x487E771: handle_exec_sql_next (gateway.c:741)
+        n1: 509259696 0x488546C: leader__barrier (leader.c:470)
+         n1: 509259696 0x4882AAA: handle_exec_sql (gateway.c:804)
+          n1: 509259696 0x4882AAA: gateway__handle (gateway.c:1431)
+           n1: 509259696 0x4879140: read_request_cb (conn.c:156)
+            n1: 509259696 0x4C7FE87: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+             n1: 509259696 0x4C804D7: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+              n1: 509259696 0x4C8511D: ??? (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+               n1: 509259696 0x4C6EC87: uv_run (in /usr/lib/x86_64-linux-gnu/libuv.so.1.0.0)
+                n1: 509259696 0x48896FF: taskRun (server.c:730)
+                 n1: 509259696 0x48896FF: taskStart (server.c:770)
+                  n1: 509259696 0x4ACCB42: start_thread (pthread_create.c:442)
+                   n0: 509259696 0x4B5DBB3: clone (clone.S:100)
+        n0: 4321056 in 1 place, below massif's threshold (1.00%)
+ n0: 11570564 in 60 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=71
+#-----------
+time=3873509928758
+mem_heap_B=479083629
+mem_heap_extra_B=139755
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=3957166318168
+mem_heap_B=495535453
+mem_heap_extra_B=199083
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=3969493721612
+mem_heap_B=503101533
+mem_heap_extra_B=227003
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=3975817811320
+mem_heap_B=503113109
+mem_heap_extra_B=227011
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=3997935581557
+mem_heap_B=519810901
+mem_heap_extra_B=220931
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=4002238012910
+mem_heap_B=1367540464
+mem_heap_extra_B=150640
+mem_stacks_B=0
+heap_tree=empty
